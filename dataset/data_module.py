@@ -172,9 +172,9 @@ def get_batch_loss(output, labels):
 
 
 
-class TextForgetDatasetQA_test7(Dataset):
+class TextForgetDatasetQA(Dataset):
     def __init__(self, tokenizer, model_family, forget_data, retain_data, max_length=512, mask=False):
-        super(TextForgetDatasetQA_test7, self).__init__()
+        super(TextForgetDatasetQA, self).__init__()
         self.tokenizer = tokenizer
         self.max_length = max_length
         self.forget_data = forget_data

@@ -61,7 +61,7 @@ for split in ${splits[@]}; do
                     COMMON="use_LoRA=$use_LoRA forget_coeff=$forget_coeff regularization_coeff=$regularization_coeff lr=$lr split=$split forget_loss=$forget_loss num_epochs=$num_epoch \
                         mask=$mask save_root=$save_root save_checkpoint=$save_checkpoint"
                     CUDA_VISIBLE_DEVICES=$DEVICE1 torchrun --nproc_per_node=$NODE --master_port=$MASTER_PORT \
-                            forget_test7.py \
+                            forget.py \
                             --config-name=tofu.yaml \
                             task_id=$task_id \
                             save_steps=$save_steps \
@@ -76,7 +76,7 @@ for split in ${splits[@]}; do
                     done
                 done
                 CUDA_VISIBLE_DEVICES=$DEVICE2 python3 \
-                eval_mixed_TEST7.py \
+                eval_llama.py \
                 --lr $lr \
                 --forget $split \
                 --method $forget_loss \
