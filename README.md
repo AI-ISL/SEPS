@@ -13,8 +13,8 @@ This repository is the official implementation for the paper: **SEPS: A Separabi
 We follow the [TOFU Benchmark](https://github.com/locuslab/tofu/?tab=readme-ov-file#installation) to install the required dependencies, please run the following commands:
 
 ```shell
-conda create -n dusk python=3.10
-conda activate dusk
+conda create -n tofu python=3.10
+conda activate tofu
 conda install pytorch pytorch-cuda=11.8 -c pytorch -c nvidia
 conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit
 pip install -r requirements.txt
