@@ -12,6 +12,8 @@ def get_loss(model, ref_model, inputs, loss_type, beta=0.1):
         forget_loss = npo_loss(model, ref_model, inputs, beta=beta)
     elif 'DPO' in loss_type:
         forget_loss = dpo_loss(model, ref_model, inputs, beta=beta)
+    elif 'IDK' in loss_type:
+        forget_loss = idk_loss(model, inputs)
     elif 'ME' in loss_type:
         forget_loss = me_loss(model, inputs)
     else: forget_loss = 0
