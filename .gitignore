@@ -24,3 +24,7 @@
 # Outputs and results
 outputs/
 results/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
