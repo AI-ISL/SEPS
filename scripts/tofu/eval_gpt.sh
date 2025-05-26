@@ -12,8 +12,14 @@ forget_losses=(
     MPUT #MP-ME
     MPT  #MP-IDK
 )
-# You can specify any forget task from 1 to 10
-# the standard TOFU benchmark is task 1
+mask=true
+
+# forget_losses=(  ## mask=false for ME+GD
+#     ME+GD
+# )
+# mask=false 
+
+
 task_list=(1)
 
 # pass to python script
@@ -31,14 +37,13 @@ if [ "$use_LoRA" = true ]; then
     DEVICE1=0
     DEVICE2=0
 else
-    save_root="results_WT_TEST7/tofu"
+    save_root="results/tofu"
     num_epochs=(5 10)
     NODE=2
     DEVICE1="0,1"
     DEVICE2=0
 fi
 
-mask=true 
 forget_coeff=1.0
 regularization_coeff=1.0
 save_checkpoint=true

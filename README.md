@@ -34,17 +34,6 @@ bash scripts/tofu/eval_gpt.sh
 ```shell
 bash scripts/tofu/eval_llama.sh
 ```
-**(1) LLM-as-Judge Score with GPT4 (ME+GD)**
-
-```shell
-bash scripts/tofu/me_gd_gpt.sh
-```
-
-**(2) LLM-as-Judge Score with Meta-Llama-3-8B-Instruct (ME+GD)**
-
-```shell
-bash scripts/tofu/me_gd_eval_llama.sh
-```
 
 ## Acknowledgments
 
