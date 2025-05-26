@@ -1,16 +1,16 @@
 MASTER_PORT=$((RANDOM % 50001 + 10000))
 forget_losses=(
     GA+GD
-    GA+KL
-    NPO+GD
-    NPO+KL
-    DPO+GD
-    DPO+KL
-    IDK+GD
-    IDK+KL
-    IDK+AP
-    MPUT #MP-ME
-    MPT  #MP-IDK
+    # GA+KL
+    # NPO+GD
+    # NPO+KL
+    # DPO+GD
+    # DPO+KL
+    # IDK+GD
+    # IDK+KL
+    # IDK+AP
+    # MPUT #MP-ME
+    # MPT  #MP-IDK
 )
 mask=true
 
@@ -41,8 +41,8 @@ else
     save_root="results/tofu"
     num_epochs=(5 10)
     NODE=2
-    DEVICE1="0,1"
-    DEVICE2=0
+    DEVICE1="6,7"
+    DEVICE2=7
 fi
 
 forget_coeff=1.0
@@ -61,19 +61,19 @@ for split in ${splits[@]}; do
                     COMMON="use_LoRA=$use_LoRA forget_coeff=$forget_coeff regularization_coeff=$regularization_coeff lr=$lr split=$split forget_loss=$forget_loss num_epochs=$num_epoch \
                         mask=$mask save_root=$save_root save_checkpoint=$save_checkpoint"
                     CUDA_VISIBLE_DEVICES=$DEVICE1 torchrun --nproc_per_node=$NODE --master_port=$MASTER_PORT \
-                            forget.py \
-                            --config-name=tofu.yaml \
-                            task_id=$task_id \
-                            save_steps=$save_steps \
-                            $COMMON
-                    for step in ${eval_steps[@]}; do
-                        CUDA_VISIBLE_DEVICES=$DEVICE2 torchrun --nproc_per_node=1 --master_port=$MASTER_PORT \
-                                eval.py \
-                                --config-name=tofu.yaml \
-                                task_id=$task_id \
-                                eval_unlearn_step=$step \
-                                $COMMON
-                    done
+                    #         forget.py \
+                    #         --config-name=tofu.yaml \
+                    #         task_id=$task_id \
+                    #         save_steps=$save_steps \
+                    #         $COMMON
+                    # for step in ${eval_steps[@]}; do
+                    #     CUDA_VISIBLE_DEVICES=$DEVICE2 torchrun --nproc_per_node=1 --master_port=$MASTER_PORT \
+                    #             eval.py \
+                    #             --config-name=tofu.yaml \
+                    #             task_id=$task_id \
+                    #             eval_unlearn_step=$step \
+                    #             $COMMON
+                    # done
                 done
                 CUDA_VISIBLE_DEVICES=$DEVICE2 python3 \
                 eval_llama.py \

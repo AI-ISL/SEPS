@@ -1,0 +1,26 @@
+# HuggingFace cache
+.cache/
+**/.cache/
+**/.huggingface/
+
+# PyTorch cache
+~/.cache/torch/
+**/torch_cache/
+
+# Transformers (datasets, tokenizers, models)
+**/datasets_cache/
+**/tokenizers_cache/
+**/models_cache/
+**/.transformers/
+
+# TensorBoard logs
+**/runs/
+**/logs/
+
+# Checkpoints
+**/checkpoint-*/
+**/checkpoints/
+
+# Outputs and results
+outputs/
+results/

@@ -73,9 +73,9 @@ def get_model_generation(inputs, model, tokenizer, max_new_tokens=128):
     
 def get_result_dir(args):
     if "ME+GD" in args.method:
-        return f'results{"_WT_TEST7" if (not args.use_LoRA) else ""}/tofu/llama2-7b/{args.forget}/{args.method}/seed_1001/epoch{args.epochs}_{args.lr}_FixRefFalse_maskFalse_1.0_1.0/1/unlearn_times_1'
+        return f'results/tofu/llama2-7b/{args.forget}/{args.method}/seed_1001/epoch{args.epochs}_{args.lr}_FixRefFalse_maskFalse_1.0_1.0/1/unlearn_times_1'
     else:
-        return f'results{"_WT_TEST7" if (not args.use_LoRA) else ""}/tofu/llama2-7b/{args.forget}/{args.method}/seed_1001/epoch{args.epochs}_{args.lr}_FixRefFalse_maskTrue_1.0_1.0/1/unlearn_times_1'
+        return f'results/tofu/llama2-7b/{args.forget}/{args.method}/seed_1001/epoch{args.epochs}_{args.lr}_FixRefFalse_maskTrue_1.0_1.0/1/unlearn_times_1'
 
 
 def get_args():
