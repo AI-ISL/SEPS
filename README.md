@@ -23,13 +23,13 @@ pip install flash-attn --no-build-isolation
 
 ## Fictitious unlearning scenario
 
-**(1) LLM-as-Judge Score with GPT4 (except for ME+GD)**
+**(1) LLM-as-Judge Score with GPT4**
 
 ```shell
 bash scripts/tofu/eval_gpt.sh
 ```
 
-**(2) LLM-as-Judge Score with Meta-Llama-3-8B-Instruct (except for ME+GD)**
+**(2) LLM-as-Judge Score with Meta-Llama-3-8B-Instruct**
 
 ```shell
 bash scripts/tofu/eval_llama.sh
